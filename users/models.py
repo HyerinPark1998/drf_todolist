@@ -34,7 +34,7 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=50, null= True, blank=True)
     gender = models.CharField(
         choices=(('남', '남자'), ('여', '여자')), max_length=1, null= True, blank=True)
-    age = models.PositiveIntegerField(max_length=3, null= True, blank=True)
+    age = models.PositiveIntegerField(null= True, blank=True)
     introduction = models.CharField(max_length=256,null= True, blank=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
