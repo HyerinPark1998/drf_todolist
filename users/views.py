@@ -12,7 +12,7 @@ class UserView(APIView):
         serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message': f'가입완료! \n${serializer.data}'}, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response({'message': f'${serializer.errors}'}, status=status.HTTP_400_BAD_REQUEST)
 

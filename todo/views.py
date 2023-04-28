@@ -12,6 +12,7 @@ class ToDoListView(APIView):
         to_do_list = ToDo.objects.all()
         serializer = ToDoSerializer(to_do_list, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
     def post(self,request):
         serializer = ToDoCreateSerializer(data=request.data)
         if serializer.is_valid():
