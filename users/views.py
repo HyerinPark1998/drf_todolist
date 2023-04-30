@@ -43,10 +43,3 @@ class UserDetailView(APIView):
             return Response({'message': '인증된 사용자가 아닙니다.'}, status=status.HTTP_403_FORBIDDEN)
 
 
-class LogoutView(APIView):
-    permission_classes = (permissions.IsAuthenticated, )
-    def post(self,request):
-        sz = RefreshTokenSerializer(data=request.data)
-        sz.is_valid(raise_exception=True)
-        sz.save()
-        return Response({'message':'로그아웃되었습니다.'},status=status.HTTP_204_NO_CONTENT)
